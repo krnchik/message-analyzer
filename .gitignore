@@ -17,6 +17,8 @@ target/
 .idea
 *.iws
 *.iml
+mics.xml
+workspace.xml
 *.ipr
 
 ### NetBeans ###
