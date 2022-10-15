@@ -20,6 +20,6 @@ public class RabbitMQ {
     public void sendMessage(Message message) throws JsonProcessingException {
         ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
         String json = ow.writeValueAsString(message);
-        template.convertAndSend("common_monitoring", json);
+        template.convertAndSend("common_monitoring", message.getStatus().toString(), json);
     }
 }
