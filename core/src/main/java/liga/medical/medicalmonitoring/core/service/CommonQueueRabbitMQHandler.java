@@ -9,17 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class RabbitMQ {
+public class CommonQueueRabbitMQHandler implements RabbitMQHandler {
     private final AmqpTemplate template;
 
     @Autowired
-    public RabbitMQ(AmqpTemplate template) {
+    public CommonQueueRabbitMQHandler(AmqpTemplate template) {
         this.template = template;
     }
 
-    public void sendMessage(Message message) throws JsonProcessingException {
-        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-        String json = ow.writeValueAsString(message);
-        template.convertAndSend("common_monitoring", message.getStatus().toString(), json);
+    public void handle(Message message) {
+        try {
+            ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+            String json = ow.writeValueAsString(message);
+            template.convertAndSend("common_monitoring", message.getStatus().toString(), json);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
     }
 }
