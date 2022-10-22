@@ -34,10 +34,14 @@
                 <scope>test</scope>
             </dependency>
 
-
             <dependency>
                 <groupId>liga.medical</groupId>
                 <artifactId>common-dto</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>liga.medical</groupId>
+                <artifactId>common-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>

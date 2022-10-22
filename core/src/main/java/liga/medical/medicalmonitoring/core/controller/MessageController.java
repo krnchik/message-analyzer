@@ -19,7 +19,6 @@ public class MessageController {
         this.rabbitMQ = rabbitMQ;
     }
 
-
     @PostMapping("/message")
     private ResponseEntity<Message> getMessage(@RequestBody Message message) {
         if (message == null) {

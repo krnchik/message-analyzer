@@ -16,11 +16,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
@@ -30,9 +25,12 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
         </dependency>
-
         <dependency>
             <!--        Эта зависимость тянет компоненты спринга их тоже нужно сканировать-->
             <groupId>liga.medical</groupId>
@@ -50,17 +48,24 @@
             <groupId>liga.medical</groupId>
             <artifactId>message-dto</artifactId>
         </dependency>
-
     </dependencies>
 
     <build>
-<!--        <finalName>analyzer-service</finalName>-->
+        <finalName>message-analyzer-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
+                <configuration>
+                    <mainClass>liga.medical.medicalmonitoring.core.MessageApplication</mainClass>
+                </configuration>
                 <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
                     <execution>
                         <id>build-info</id>
                         <goals>
