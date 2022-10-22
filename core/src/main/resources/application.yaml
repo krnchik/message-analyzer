@@ -4,6 +4,8 @@ server:
     context-path: /
 
 management:
+  server:
+    port: 8084
   endpoints:
     web:
       exposure:
