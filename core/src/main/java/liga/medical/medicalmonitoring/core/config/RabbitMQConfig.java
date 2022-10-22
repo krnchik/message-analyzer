@@ -15,6 +15,7 @@ public class RabbitMQConfig {
 
     @Value("${spring.rabbitmq.host}")
     private String host;
+
     @Bean
     public ConnectionFactory connectionFactory() {
         return new CachingConnectionFactory(host);
