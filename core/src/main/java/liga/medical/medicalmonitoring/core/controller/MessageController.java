@@ -1,6 +1,7 @@
 package liga.medical.medicalmonitoring.core.controller;
 
-import liga.medical.medicalmonitoring.core.model.Message;
+import liga.medical.common.dto.RabbitMessageDto;
+import liga.medical.medicalmonitoring.core.annotation.DbLog;
 import liga.medical.medicalmonitoring.core.service.RabbitMQHandler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,8 @@ public class MessageController {
     }
 
     @PostMapping("/message")
-    private ResponseEntity<Message> getMessage(@RequestBody Message message) {
+    @DbLog
+    private ResponseEntity<RabbitMessageDto> getMessage(@RequestBody RabbitMessageDto message) {
         if (message == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

@@ -21,6 +21,10 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
         <dependency>
@@ -47,6 +51,11 @@
         <dependency>
             <groupId>liga.medical</groupId>
             <artifactId>message-dto</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fr.velossity.osgi</groupId>
+            <artifactId>LoggingServiceBinding</artifactId>
+            <version>1.0.1</version>
         </dependency>
     </dependencies>
 

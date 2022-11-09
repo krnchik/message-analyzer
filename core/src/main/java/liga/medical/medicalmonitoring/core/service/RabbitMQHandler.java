@@ -1,7 +1,7 @@
 package liga.medical.medicalmonitoring.core.service;
 
-import liga.medical.medicalmonitoring.core.model.Message;
+import liga.medical.common.dto.RabbitMessageDto;
 
 public interface RabbitMQHandler {
-    void handle(Message message);
+    void handle(RabbitMessageDto message);
 }
